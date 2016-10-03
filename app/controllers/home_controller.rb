@@ -1,4 +1,9 @@
 class HomeController < ApplicationController
+  before_action :allow_iframe_requests
+  def allow_iframe_requests
+    response.headers.delete('X-Frame-Options')
+  end
+
   def index
     if params[:access_token].present?
       session[:access_token] = params[:access_token]
@@ -8,10 +13,11 @@ class HomeController < ApplicationController
 
 
     #sandbox URL.
-    @authorize_link="http://ppe-jurnal-app-2.elasticbeanstalk.com/authorize_apps/new"
+    @authorize_link="http://sandbox.jurnal.id/authorize_apps/new"
 
     #this is the client_id of this sample app to the sandbox url
-    @client_id =  "72873d74d5c741489e80a7302f7beb73"
+    @client_id =  "57170c81a5a74b7d83a469e41364b102"
+
   end
 
   def logout

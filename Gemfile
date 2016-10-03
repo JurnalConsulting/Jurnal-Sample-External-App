@@ -17,6 +17,7 @@ gem 'bootswatch-rails'
 gem 'autoprefixer-rails'
 gem 'backstretch-rails'
 gem 'bootstrap-select-rails'
+gem 'rack-cors', :require => 'rack/cors'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 3.2'

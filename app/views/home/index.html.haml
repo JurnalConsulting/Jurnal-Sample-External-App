@@ -1,34 +1,34 @@
 %section
-  .body-section
-    -if session[:access_token].present?
-      .present-section
-        %h3
-          Welcome
-        Your Access Token is
-        %code 
-          = session[:access_token]
-        %br
-        Your Refresh Token is 
-        %code
-          = session[:refresh_token]
-        %br
-        Expire in
-        %code
-          = session[:expires_in]
-        %h4
-          Sample API Endpoints
-        %br
-          =link_to "Get Customers List","https://54.251.142.144:8443/partner/core/api/v1/customers?access_token=#{session[:access_token]}", :target => "_blank"
-        =link_to "Get Products List","https://54.251.142.144:8443/partner/core/api/v1/products?access_token=#{session[:access_token]}", :target => "_blank"
-        %br
-          =link_to "Get Sales Invoices List","https://54.251.142.144:8443/partner/core/api/v1/sales_invoices?access_token=#{session[:access_token]}", :target => "_blank"
-        =link_to "Get Accounts List","https://54.251.142.144:8443/partner/core/api/v1/accounts?access_token=#{session[:access_token]}", :target => "_blank"
-        %br
-          =link_to "Get Vendors List","https://54.251.142.144:8443/partner/core/api/v1/vendors?access_token=#{session[:access_token]}", :target => "_blank"
-        %br
-          =link_to "<button class='button-logout-area'>Logout</button>".html_safe ,logout_path(:logout => true), {:style => 'color:#FFFFFF;'}
+  .whole-section
+    .body-section
+      -if session[:access_token].present?
+        .present-section
+          %h3
+            Welcome
+          Your Access Token is
+          %code 
+            = session[:access_token]
+          %h4
+            Sample API Endpoints
+          %br
+            =link_to "Get Customers List","https://sandbox-api.jurnal.id/partner/core/api/v1/customers?access_token=#{session[:access_token]}", :target => "_blank"
+          =link_to "Get Products List","https://sandbox-api.jurnal.id/partner/core/api/v1/products?access_token=#{session[:access_token]}", :target => "_blank"
+          %br
+            =link_to "Get Sales Invoices List","https://sandbox-api.jurnal.id/partner/core/api/v1/sales_invoices?access_token=#{session[:access_token]}", :target => "_blank"
+          =link_to "Get Accounts List","https://sandbox-api.jurnal.id/partner/core/api/v1/accounts?access_token=#{session[:access_token]}", :target => "_blank"
+          %br
+            =link_to "Get Vendors List","https://sandbox-api.jurnal.id/partner/core/api/v1/vendors?access_token=#{session[:access_token]}", :target => "_blank"
+          %br
+            =link_to "<button class='button-logout-area'>Logout</button>".html_safe ,logout_path(:logout => true), {:style => 'color:#FFFFFF;'}
+      -else 
+        //triggered in javascript testing-origin.js
+        .button-area
+          %img{:src => asset_path("Jurnal_Buttons.png"), :width => "200" ,:style => "cursor:pointer;"}
+          
 
 
-    -else
-      =link_to "<button class='button-area'>Authorize to Jurnal</button>".html_safe ,"#{@authorize_link}?client_id=#{@client_id}", {:style => 'color:#FFFFFF;',:target => "_blank"}
+
+
+- content_for :scripts do
+  = javascript_include_tag 'testing-origin', "data-turbolinks-track" => true
 
