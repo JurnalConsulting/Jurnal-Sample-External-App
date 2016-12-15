@@ -1,0 +1,15 @@
+HTTP/1.1 415 Unsupported Media Type
+Date: Thu, 27 Oct 2016 07:09:39 GMT
+Content-Type: text/html; charset=UTF-8
+Content-Length: 201
+Connection: keep-alive
+Access-Control-Allow-Origin: *
+Server: kong/0.9.3
+
+<html>
+<head><title>415 Unsupported Media Type</title></head>
+<body bgcolor="white">
+<center><h1>415 Unsupported Media Type</h1></center>
+<hr><center>openresty/1.9.15.1</center>
+</body>
+</html>
